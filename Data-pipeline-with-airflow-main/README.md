@@ -5,7 +5,7 @@
   # myapp:
   #   build: ../MyApp
   #   ports:
-  #     - "9955:9955"
+  #     - "3131:3131"
   #   networks:
   #     - qdrant-network
   #   depends_on:
@@ -50,7 +50,7 @@ airflow scheduler
   myapp:
     build: ../MyApp
     ports:
-      - "9955:9955"
+      - "3131:3131"
     networks:
       - qdrant-network
     depends_on:
@@ -62,12 +62,12 @@ airflow scheduler
 docker compose up myapp --build
 ```
 3. Truy cập vào App Search UI:
-> http://localhost:9955/
+> http://localhost:3131/
 4. Vào file test_Thong.ipynb test:
 ```python
 
 import requests
-url = "http://localhost:9955"
+url = "http://localhost:3131"
 response = requests.post(f"{url}/search", json = {"query": "Hội nghị cấp khoa?"})
 response.json()
 
